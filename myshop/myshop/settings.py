@@ -9,8 +9,9 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -131,10 +132,10 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 CART_SESSION_ID = 'cart'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp-mail.outlook.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
-EMAIL_HOST_USER = 'ingenierocivil.jmm@outlook.com'
-EMAIL_HOST_PASSWORD = '3126348553EdilmaVergara##89'
+EMAIL_BACKEND = config('EMAIL_BACKEND_ID')
+EMAIL_HOST = config('EMAIL_HOST_ID')
+EMAIL_PORT = config('EMAIL_PORT_ID')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS_ID')
+EMAIL_USE_SSL = config('EMAIL_USE_SSL_ID')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER_ID')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD_ID')
