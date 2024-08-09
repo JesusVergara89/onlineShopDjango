@@ -13,6 +13,9 @@ import os
 from pathlib import Path
 from decouple import config
 
+os.environ['DYLD_LIBRARY_PATH'] = '/opt/homebrew/lib:/usr/local/lib'
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -130,6 +133,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+STATIC_ROOT = BASE_DIR / 'static'
 
 CART_SESSION_ID = 'cart'
 
@@ -147,4 +151,3 @@ STRIPE_SECRET_KEY = config("STRIPE_SECRET_KEY_ID")
 STRIPE_API_VERSION = config("STRIPE_API_VERSION_ID")
 
 STRIPE_WEBHOOK_SECRET = config('STRIPE_WEBHOOK_SECRET_ID')
-
