@@ -10,7 +10,7 @@ from orders.models import Order
 def payment_completed(order_id):
     order = Order.objects.get(id=order_id)
     subject = f'My Shop - Invoice no. {order.id}'
-    message = 'Please, find attached the invoice for your recent purchase.'
+    message = 'Thi is a mail to Rogelio Ponce from Jesus Vergara, This is a test where a PDF is created from a webshop. Please, find attached the invoice for your recent purchase.'
     email = EmailMessage(subject,message,'ingenierocivil.jmm@outlook.com',[order.email])
     html = render_to_string('orders/order/pdf.html', {'order': order})
     out = BytesIO()
